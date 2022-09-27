@@ -3,6 +3,7 @@ require "./lib/ingredient.rb"
 require "./lib/pantry.rb"
 require "./lib/recipe.rb"
 require "./lib/cook_book.rb"
+require "date"
 
 RSpec.describe CookBook do
 
@@ -69,7 +70,20 @@ RSpec.describe CookBook do
 
   describe "#date" do
     it "returns the date the cookbook was created" do
-      expect(@cookbook.date).to eq("04-22-2020")
+      expect(@cookbook.date).to eq("09-27-2022")
+    end
+  end
+
+  describe "#summary" do
+    it "returns an array that contains a hash containing the recipes and all recipe info" do
+      expect(@cookbook.summary).to eq([{:name => "Mac and Cheese",
+                                        :details => {:ingredients => [{:ingredient=> "Macaroni", :amount=>"8 oz"},
+                                                                      {:ingredient=>"Cheese", :amount=>"2 C"}],
+                                                    :total_calories => 440}},
+                                        {:name=>"Burger",
+                                        :details => {:ingredients => [{:ingredient => "Ground Beef", :amount => "4 oz"},
+                                                                      {:ingredient => "Bun", :amount => "100 g"}],
+                                                     :total_calories=>500}}])
     end
   end
 end

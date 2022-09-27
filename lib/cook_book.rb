@@ -24,4 +24,13 @@ class CookBook
       recipe.total_calories
     end
   end
+
+  def date
+    date = Date.today.to_s
+    "#{date[5..6]}-#{date[8..9]}-#{date[0..3]}"
+  end
+
+  def summary
+
+  end 
 end
